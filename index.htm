@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toon4all</title>
+    <style>
+        *{
+    padding:0px;
+    margin: 0px;
+    font-size: 12px;
+}
+body{
+    background-color: #121212;
+    color: white;
+}
+header{
+    height: 10vh;
+    width: 100%;
+    background-color: rgb(76, 5, 124);
+    position: sticky;
+    z-index: 10;
+    top: 0px;
+}
+.nav{
+    display: flex;
+    position: sticky;
+    height: 10vh;
+    width: 100%;
+    
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    height: 6.2vh;
+    cursor: pointer;
+}
+.search{
+    height: 3vh;
+    position: absolute;
+    right: 3%;
+    top: 38%;
+    cursor: pointer;
+}
+.menu{
+    height: 3vh;
+    position: absolute;
+    left: 3%;
+    top: 38%;
+    cursor: pointer;
+}
+main{
+    padding: 5vh;
+}
+.catlink{
+   display: flex;
+   gap: 20px; 
+   flex-wrap: wrap;
+   padding: 10px;
+}
+.catlink li{
+    font-size: 1.3em;
+    list-style: none;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(209, 154, 246)
+}
+.catlink li:hover{
+    cursor: pointer;
+    text-decoration: underline 1px double;
+    text-decoration-color: rgb(209, 154, 246);
+}
+.title{
+    font-size: 2.7em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+.subline{
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    gap: 10px;
+}
+.clock{
+    height: 14px;
+    position: relative;
+    bottom: -6px;
+    padding: 5px;
+}
+.date{
+    font-size: 1.5em;
+}
+.user{
+    font-size: 1.5em;
+}
+.userpic{
+    height: 16px;
+    position: relative;
+    bottom: -6px;
+    padding: 5px;
+    padding-right: 3px;
+}
+.quality{
+    padding: 20px 0px;
+    font-size: 1.7em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.img{
+    display: flex;
+    justify-content: center;
+}
+.mainimg{
+    width: 50vw;
+    max-width: 45vw;
+    margin: auto;
+    filter: brightness(0.9);
+}
+.information{
+    padding: 30px 0px;
+}
+.line .red{
+    font-size: 1.4em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.line .black{
+    font-size: 1.4em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif}
+.line{
+    padding: 5px;
+}
+.red{
+    color: rgb(231, 90, 90);
+    padding: 0px 8px;
+    font-size: 1.5em;
+}
+.highlight{
+    font-size: 1em;
+    color: rgb(18, 163, 224);
+}
+.synopsis{
+    padding: 20px 0px;
+}
+.sred{
+    font-size: 1.8em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(231, 90, 90);
+}
+.sblack{
+    font-size: 1.4em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.screenshots{
+    border: 2px solid white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+.screenshots span{
+    font-size: 1.53em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.screenshots :nth-child(2){
+    font-weight:800;
+}
+.great{
+    font-size: 2.2em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.ep{
+    text-align: center;
+    margin: 40px 0px;
+}
+.downloadbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    flex-direction: column;
+    text-align: center;
+}
+.downloadbutton span{
+    margin: 20px;
+    font-size: 1.8em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.pngdownload{
+    height: 10vh;
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+.pngdownload:hover{
+filter: brightness(90%);
+}
+.item{
+    border: 1px solid white;
+    padding:20px 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 10px;
+    align-items: center;
+}
+.item div{
+    font-size: 1.2em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+.complete{
+    display: flex;
+    flex-direction: column;
+}
+.ep1{
+    text-align: center;
+    margin: 20px;
+    font-size: 1.8em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.finishing{
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.parent{
+    font-size: 2.5em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 15px;
+}
+.kid{
+    font-size: 1.7em;
+    color: rgb(209, 154, 246);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 7px 0px;
+    cursor: pointer;
+}
+.kid:hover{
+    text-decoration: underline;
+    color: rgb(181, 121, 221);
+    text-decoration-color: rgb(181, 121, 221);
+}
+.guide{
+    border: 2px solid white;
+    padding: 15px;
+    text-align: center;
+    max-width: 60vw;
+    margin: auto;
+}
+.black2{
+    font-size: 1.4em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.red2{
+    font-size: 1.4em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(231, 90, 90);
+}
+.red2:hover{
+    text-decoration: underline;
+    color: rgb(235, 81, 81);
+    text-decoration-color: rgb(235, 81, 81);
+}
+.tagtitle{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 30px 0px;
+}
+.tags{
+    padding: 6px 10px;
+    margin: 4px;
+    background-color: rgb(77, 76, 76);
+    font-size: 1.3em;
+}
+.tag{
+    font-size: 1.4em;
+    padding: 7px 14px;
+    margin: 4px;
+    background-color: rgb(181, 121, 221);
+    color: black;
+}
+.tags:hover{
+    color: black;
+    background-color: rgb(212, 184, 231);
+}.suggestions{
+    margin: 30px 0px;
+    position: relative;
+
+  
+}
+.suggestions .box1{
+    padding: 7px 14px;
+    font-size: 1.4em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(99, 10, 158);
+    width: fit-content;
+}
+.suggestions .box1:hover{
+    color: #121212;
+}
+.line1{
+    height: 4px;
+    background-color: rgb(99, 10, 158);
+    width: 100%;
+}
+.grid{
+    display: grid;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+.cardimg{
+    height: 20vh;
+    margin: 10px;
+    filter: contrast(120%) brightness(95%);
+}
+.text{
+    width: 25vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3em;
+    padding: 7px;
+    text-wrap: wrap;
+    margin-bottom: 10px;
+    color: rgb(181, 121, 221);
+}
+.text:hover{
+    text-decoration: underline 2px ;
+}
+@media only screen and (max-width: 800px) {
+    .grid{
+        grid-template-columns: 1fr;
+    }
+    .cardimg{
+        height: 23vh;
+      }
+    .card{
+        width: 80vw;
+    }
+    .text{
+        max-width: 65vw;
+        margin: auto;
+        width: 65vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-right: 20px;
+        text-wrap: wrap;
+     
+    }
+    *{
+        font-size: 11px;
+    }
+    .footer{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}
+.more{
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 1.2em;
+    padding: 6px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    border: 1px solid white;
+}
+.author{
+    display: flex;padding: 20px 0px;
+}
+.authorpng{
+   height: 15vh;
+   border-radius: 50%;
+   border: 2px solid rgb(99, 10, 158);
+   object-fit: fill;
+}
+.authortext{
+    display: flex;
+    flex-direction: column;
+    max-width: 50vw;
+    padding-left: 40px;
+    text-wrap: wrap;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.large{
+    font-size: 2.5em;
+    text-decoration: underline;
+}
+.small{
+    padding-top: 25px;
+    font-size: 1.5em;
+}
+.input{
+    height: 10vh;
+    width: 100%;
+    font-size: 1.5em;
+    background-color: rgba(89, 2, 139, 0.538);
+    text-decoration: none;
+    border: none;
+    padding: 0px 10px;
+}
+.comments{
+    margin: 40px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.comment1{
+    display: flex;
+    align-items: center;
+    margin: 25px 0px;
+}
+.commmentimg{
+    height: 15vh;
+    border-radius: 50%;
+    filter: brightness(90%);
+}
+.commenttxt{
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+}
+.head{
+font-size: 1.8em;
+margin-bottom: 10px;
+color: rgb(209, 154, 246);
+}
+.head:hover{
+    text-decoration: underline 2px;
+}
+.time{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: gray;
+}
+.content{
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+.reply{
+    color: rgb(235, 81, 81);
+    font-size: 1.5em;
+}
+.line2{
+    height: 1px;
+    background-color: rgb(99, 10, 158);
+    width: 100%;
+    margin: 30px 0px;
+}
+.searchbar{
+    display: flex;
+    background-color: rgba(89, 2, 139, 0.538);
+    padding: 20px 15px;
+    justify-content: space-between;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.searchbar span{
+    font-size:1.5em;
+    opacity: 0.7;
+}
+.searchbar img{
+    height: 3vh;
+}
+input::placeholder{
+    color: white;
+    opacity: 0.7;
+}
+.reply:hover{
+    text-decoration: underline 2px;
+}
+.socialmedia{
+    display: flex;
+}
+.facebook{
+    margin:  0% 2%;
+    border-radius: 38%;
+    width: 50px;
+    object-fit:cover
+}
+footer{
+    padding:  0px 5vh;
+}
+.uploads{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.items{
+    margin: 1%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5em;
+    color: rgb(209, 154, 246);
+}
+.items:hover{
+    color: rgb(181, 121, 221);
+    text-decoration: underline 2px;
+}
+.join{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.telegram{
+    margin: 10px 5px;
+}
+.discord{
+    margin:  10px 5px;
+}
+.telepic{
+    border-radius: 30%;
+    height: 20vh;
+}
+.footer{
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    text-align: center;
+    background-color: rgb(76, 5, 124);
+    padding: 10px 10px;
+}
+.icons{
+    display: flex;
+}
+.lasticon{
+    border-radius: 40%;
+    object-fit: cover;
+    height: 35px;
+    width: 35px;
+    margin: 10px 20px;
+}
+.txt{
+    font-size: 1.7em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.txt span{
+    font-size: 1.7rem;
+    color: rgb(235, 81, 81);
+}
+.txt span:hover{
+    text-decoration: underline 1px double;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav"><img src="icons8-search-100.png" alt="Search" class="search">
+            <img src="logo.png" alt="Toon4all" class="logo">
+            <img src="icons8-menu-100.png" alt="" class="menu">
+        </div>
+    </header>
+    <main>
+        <ul class="catlink">
+            <li>ANIMATED SERIES </li>
+            <li>COMPLETED</li>
+            <li>HINDI DUB</li>
+            <li> NETFLIX</li>
+        </ul>
+        <div class="title">
+            Kung Fu Panda: The Dragon Knight Season 3 Dual Audio [Hindi DD5.1-English DD5.1] 480p, 720p & 1080p HD
+            WEB-DL | 10bit HEVC ESub
+        </div>
+        <div class="subline">
+            <span class="date"> <img src="icons8-clock-50.png" alt="" class="clock">September 16, 2023</span>
+            <span class="user"><img src="icons8-user-48.png" alt="" class="userpic">Toon World</span>
+        </div>
+        <div class="quality">
+            [1080p | 720p | 480p | Hindi DD5.1 - English DD5.1 | WEB-DL | ESub]
+        </div>
+        <div class="img">
+            <img src="chrome_image_21-Dec-2023 12_14_36 pm GMT+05_00.png" class="mainimg" alt="">
+        </div>
+        <div class="information">
+            <div class="line"> <span class="red">Genre:</span><span class="black">Animation | Action | Adventure</span>
+            </div>
+            <div class="line"> <span class="red">Org. run</span><span class="black">TV Series (2022– )</span></div>
+
+            <div class="line"> <span class="red">Network:</span><span class="black">Netflix</span></div>
+
+            <div class="line"> <span class="red">Running time:</span><span class="black">24min</span></div>
+
+
+            <div class="line"> <span class="red">Language:</span><span class="black">English DD5.1 - <span
+                        class="highlight">Hindi DD5.1</span> [Org. NF Audio]</span></div>
+
+
+            <div class="line"> <span class="red">Episodes:</span><span class="black">19</span></div>
+
+
+            <div class="line"> <span class="red">Subtitles:</span><span class="black"> English
+                    [Softcoded]</span></div>
+
+
+            <div class="line"> <span class="red">Quality:</span><span class="black"> 1080p FHD | 720p HD |
+                    480p NF WEB-DL</span></div>
+
+
+
+            <div class="line"> <span class="red">Encoder:</span><span class="red highlight"> TOON WORLD</span></div>
+
+
+            <div class="line"> <span class="red">Credits:</span><span class="black"> Usman</span></div>
+        </div>
+        <div class="synopsis">
+            <div class="sline"> <span class="sred">Synopsis:</span><span class="sblack"> Follows Po who partners up with
+                    a no-nonsense English knight named Wandering Blade to find a collection of four powerful weapons
+                    before a mysterious pair of weasels do, and save the world from destruction..</span></div>
+        </div>
+        <div class="screenshots"><span>&rArr;&nbsp;&nbsp;SCREENSHOTS HERE</span> <span>+</span></div>
+        <div class="downloadtitle">
+            <span class="great">
+                ||Download Kung Fu Panda: The Dragon Knight Season 3 Episodes in Hindi Dual Audio||</span>
+        </div>
+        <div class="downloadbutton">
+            <img src="downloadnow.png" alt="" class="pngdownload">
+            <span class="ep">||Single Episodes Download Link||</span>
+        </div>
+        <div class="qualitidiv">
+            <div class="item">
+                <div>⇒ 480p SD x264 87MB Each</div>
+                <div class="add">+</div>
+            </div>
+            <div class="item">
+                <div>⇒ 720p HD x264 AAC 2.0 182MB Each</div>
+                <div class="add">+</div>
+            </div>
+            <div class="item">
+                <div>⇒ 720p HEVC 10bit x265 Opus 2.0 117MB Each</div>
+                <div class="add">+</div>
+            </div>
+            <div class="item">
+                <div>⇒ 1080p HEVC 10bit DD5.1 290MB Each</div>
+                <div class="add">+</div>
+            </div>
+
+        </div>
+        <div class="complete">
+            <span class="ep1">||Complete Pack Single Zip File||</span>
+            <div class="qualitidiv">
+                <div class="item">
+                    <div>⇒ 480p SD Complete Pack</div>
+                    <div class="add">+</div>
+                </div>
+                <div class="item">
+                    <div>⇒ 720p HD Complete Pack</div>
+                    <div class="add">+</div>
+                </div>
+                <div class="item">
+                    <div>⇒ 720p HEVC Complete Pack</div>
+                    <div class="add">+</div>
+                </div>
+                <div class="item">
+                    <div>⇒ 1080p HEVC Complete Pack</div>
+                    <div class="add">+</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="finishing">
+            <div class="parent">COMPLETE SEASON 3 ADDED</div>
+            <div class="kid">DOWNLOAD SEASON 1</div>
+            <div class="kid">DOWNLOAD SEASON 2</div>
+        </div>
+        <div class="guide">
+            <span class="black2">HOW TO DOWNLOAD MOVIES AND SERIES FROM HERE?&nbsp;&nbsp;</span><span class="red2">CLICK
+                HERE</span>
+        </div>
+        <div class="tagtitle"><span class="tag">Tags</span>
+            <span class="tags">1080p</span><span class="tags">480p</span><span class="tags">720p HD</span><span
+                class="tags">Animated Series</span><span class="tags">Cartoon Shows</span><span class="tags">Dual
+                Audio</span><span class="tags">English Cartoons</span><span class="tags">Hindi Cartoons</span><span
+                class="tags">Netflix</span>
+        </div>
+        <div class="suggestions">
+            <div class="box1">You may also like</div>
+            <div class="line1"></div>
+        </div>
+        <div class="grid">
+            <div class="card"><img src="tarzan.png" alt="" class="cardimg">
+                <div class="text">Arjun: The Warrior Prince (2012) WEB-DL Hindi DDP5.1 480p, 720p & 1080p HD | 10bit
+                    HEVC ESub
+
+                </div>
+            </div>
+            <div class="card"><img src="ronja.png" alt="" class="cardimg">
+                <div class="text">Ronja, the Robber's Daughter Season 1 Multi Audio [Hindi-Tamil-Telugu-Mal-Eng-Jap]
+                    480p, 720p & 1080p HD BluRay | 10bit HEVC ESub
+                </div>
+            </div>
+            <div class="card"><img src="barbie.png" alt="" class="cardimg">
+                <div class="text">Barbie Fairytopia: Mermaidia (2006) Dual Audio [Hindi DDP2.0-English DDP5.1] 480p,
+                    720p & 1080p HD WEB-DL | 10bit HEVC ESub
+                </div>
+            </div>
+
+        </div>
+        <div class="suggestions">
+            <div class="box1">About the Author</div>
+            <div class="line1"></div>
+            <button class="more">View all Posts</button>
+        </div>
+        <div class="author">
+            <img src="author.png" alt="" class="authorpng">
+            <div class="authortext">
+                <div class="large">
+                    Toon World</div>
+                <div class="small">You must be the change you wish to see in the world.</div>
+            </div>
+        </div>
+        </div>
+        <div class="suggestions">
+            <div class="box1">3 Comments</div>
+            <div class="line1"></div>
+        </div>
+        <input type="text" class="input" placeholder="Click here to post a comment">
+        <div class="comments">
+            <div class="comment1"><img src="comment.png" alt="" class="commmentimg">
+                <div class="commenttxt">
+                    <div class="head">Waseem</div>
+                    <div class="time">December 7, 2023 at 1:00 am</div>
+                    <div class="content">Add kung fu panda all movies</div>
+                    <div class="reply">REPLY</div>
+                </div>
+            </div>
+            <div class="line2"></div>
+            <div class="comment1"><img src="icons8-user-48.png" alt="" class="commmentimg">
+                <div class="commenttxt">
+                    <div class="head">Raja</div>
+                    <div class="time">September 23, 2023 at 5:08 pm</div>
+                    <div class="content">Brother 1080 p quality upload kiya karo HEVC nahi</div>
+                    <div class="reply">REPLY</div>
+                </div>
+            </div>
+            <div class="line2"></div>
+            <div class="comment1"><img src="author.png" alt="" class="commmentimg">
+                <div class="commenttxt">
+                    <div class="head">Toon World</div>
+                    <div class="time">September 17, 2023 at 1:13 pm</div>
+                    <div class="content">No Idea, Only Sony Yay knows</div>
+                    <div class="reply">REPLY</div>
+                </div>
+            </div>
+        </div>
+        <div class="searchbar">
+            <span>Type here to search</span>
+            <img src="icons8-search-100.png" alt="">
+        </div>
+        <div class="follow">
+            <div class="suggestions">
+                <div class="box1">Follow us</div>
+                <div class="line1"></div>
+            </div>
+            <div class="socialmedia">
+                <img src="facebook.png" alt="" class="facebook">
+                <img src="youtube.png" alt="" class="facebook">
+                <img src="discord.png" alt="" class="facebook">
+                <img src="telegram.png" alt="" class="facebook">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="suggestions">
+            <div class="box1">Latest upload</div>
+            <div class="line1"></div>
+        </div>
+        <div class="uploads">
+            <div class="items">The Iceblade Sorcerer Shall Rule the World Ep.1 Added Multi Audio</div>
+            <div class="items">Log Horizon Ep.6 Added BluRay Multi Audio</div>
+            <div class="items">Tomo-chan Is a Girl! Ep.6 Added BluRay Multi Audio</div>
+            <div class="items">Shangri-La Frontier Ep.9 Added Multi Audio</div>
+            <div class="items">My Hero Academia: World Heroes' Mission (2021) BluRay Multi Audio ESub</div>
+            <div class="items">The Angel Next Door Spoils Me Rotten Ep.5 Added Dual Audio</div>
+            <div class="items">My Love Story with Yamada-kun at Lv999 Ep.5 Added Multi Audio MSub</div>
+            <div class="items">Buddy Daddies Ep.5 Added Multi Audio</div>
+            <div class="items">Frieren: Beyond Journey's End Ep.11 Added Multi Audio</div>
+            <div class="items">Chicken Run: Dawn of the Nugget (2023) Multi Audio ESub</div>
+            <div class="items">Rurouni Kenshin (2023) Ep.20 Added Dual Audio</div>
+            <div class="items">Jujutsu Kaisen Season 2 Ep.13 Added Multi Audio</div>
+            <div class="items">The Ancient's Bride Season 2 Ep.20 Added Multi Audio</div>
+            <div class="items">I Got a Cheat Skill in Another World Ep.5 Added BluRay Multi Audio
+
+            </div>
+            <div class="items">The Reincarnation of the Strongest Exorcist in Another World Ep.2 Added BluRay</div>
+        </div>
+        <div class="join">
+            <div class="telegram">
+                <div class="suggestions">
+                    <div class="box1">JOIN US ON TELEGRAM</div>
+                    <div class="line1"></div>
+                </div>
+                <img src="telegram.png" alt="" class="telepic">
+            </div>
+            <div class="discord">
+                <div class="suggestions">
+                    <div class="box1">JOIN US ON DISCORD</div>
+                    <div class="line1"></div>
+                </div>
+                <img src="discord.png" alt="" class="telepic">
+            </div>
+        </div>
+
+    </footer>
+    <div class="footer">
+        <div class="txt">Copyright © 2012-2023. All Rights Reserved by<span> TOONWORLD4ALL </span></div>
+        <div class="icons">
+            <img src="facebook.png" alt="" class="lasticon">
+            <img src="youtube.png" alt="" class="lasticon">
+        </div>
+    </div>
+</body>
+
+</html>
